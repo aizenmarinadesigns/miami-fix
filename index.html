@@ -764,13 +764,13 @@
                         <span class="lang-en">Have questions?</span>
                         <span class="lang-es">¿Tienes preguntas?</span>
                     </h3>
-                    <form class="space-y-4">
+                    <form name="contacto-miami" method="POST" data-netlify="true" class="space-y-4">
                         <div class="grid grid-cols-2 gap-4">
-                            <input type="text" placeholder="Name / Nombre" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-all">
-                            <input type="tel" placeholder="Phone / Teléfono" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-all">
+                            <input name="nombre" type="text" placeholder="Name / Nombre" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-all">
+                            <input name="telefono" type="tel" placeholder="Phone / Teléfono" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-all">
                         </div>
-                        <textarea rows="3" placeholder="How can we help? / ¿Cómo podemos ayudar?" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-all"></textarea>
-                        <button type="button" class="w-full bg-white text-zinc-950 font-bold py-3 rounded-lg hover:bg-zinc-200 transition-colors">
+                        <textarea name="mensaje" rows="3" placeholder="How can we help? / ¿Cómo podemos ayudar?" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-all"></textarea>
+                        <button type="submit" class="w-full bg-white text-zinc-950 font-bold py-3 rounded-lg hover:bg-zinc-200 transition-colors">
                             <span class="lang-en">Send Message</span>
                             <span class="lang-es">Enviar Mensaje</span>
                         </button>
