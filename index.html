@@ -2,8 +2,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Miami Fix | Fast, Clean &amp; Trusted Handyman Services</title>
-<meta name="description" content="Miami's most trusted handyman service. We speak Spanish. Emergency repairs.">
+<meta name="description" content="Miami's most trusted handyman service. Fast repairs, fair prices. We speak Spanish. Emergency dispatch in under 60 minutes. Fully insured &amp; licensed in Miami-Dade.">
+<!-- Open Graph -->
+<meta property="og:title" content="Miami Fix | Fast, Clean &amp; Trusted Handyman Services">
+<meta property="og:description" content="Family-owned handyman service in Miami. Emergency repairs, memberships, and honest pricing. We speak Spanish.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="es_US">
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%232563eb'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-size='20'>🔧</text></svg>">
 <script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            fontFamily: {
+                manrope: ['Manrope', 'sans-serif'],
+                inter: ['Inter', 'sans-serif'],
+                sans: ['Inter', 'sans-serif'],
+            }
+        }
+    }
+}
+</script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -88,13 +109,8 @@
 </style>
 <script>
     function toggleLanguage() {
-    // 1. Cambiamos el modo en el body (para los estilos)
     document.body.classList.toggle('spanish-mode');
-    
-    // 2. Detectamos en qué idioma estamos ahora
     const isSpanish = document.body.classList.contains('spanish-mode');
-    
-    // 3. Forzamos a que CADA texto se muestre u oculte correctamente
     document.querySelectorAll('.lang-es').forEach(el => {
         el.style.display = isSpanish ? 'inline-block' : 'none';
     });
@@ -102,6 +118,18 @@
         el.style.display = isSpanish ? 'none' : 'inline-block';
     });
 }
+
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        const isOpen = !menu.classList.contains('hidden');
+        if (isOpen) {
+            menu.classList.add('hidden');
+            document.body.style.overflow = '';
+        } else {
+            menu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+    }
 
     function togglePricing() {
         const isAnnual = document.getElementById('pricing-toggle').checked;
@@ -155,9 +183,54 @@
                     <iconify-icon icon="lucide:phone" width="14"></iconify-icon>
                     (305) 555-0199
                 </a>
+                <!-- Mobile Hamburger Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-zinc-100 transition-colors" aria-label="Open menu">
+                    <iconify-icon icon="lucide:menu" width="22"></iconify-icon>
+                </button>
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="hidden fixed inset-0 z-[60] bg-white">
+        <div class="flex h-16 max-w-6xl mx-auto px-6 items-center justify-between border-b border-zinc-100">
+            <a href="#" class="text-xl font-bold tracking-tighter text-zinc-900 flex items-center gap-2">
+                <div class="bg-blue-600 text-white p-1.5 rounded-lg">
+                    <iconify-icon icon="lucide:hammer" width="16" height="16"></iconify-icon>
+                </div>
+                MIAMIFIX
+            </a>
+            <button onclick="toggleMobileMenu()" class="flex items-center justify-center w-10 h-10 rounded-lg hover:bg-zinc-100 transition-colors" aria-label="Close menu">
+                <iconify-icon icon="lucide:x" width="22"></iconify-icon>
+            </button>
+        </div>
+        <nav class="flex flex-col items-center gap-8 pt-12 text-lg font-semibold text-zinc-700">
+            <a href="#work" onclick="toggleMobileMenu()" class="hover:text-blue-600 transition-colors">
+                <span class="lang-en">Our Work</span>
+                <span class="lang-es">Trabajos</span>
+            </a>
+            <a href="#promise" onclick="toggleMobileMenu()" class="hover:text-blue-600 transition-colors">
+                <span class="lang-en">The Promise</span>
+                <span class="lang-es">La Promesa</span>
+            </a>
+            <a href="#plans" onclick="toggleMobileMenu()" class="hover:text-blue-600 transition-colors">
+                <span class="lang-en">Plans</span>
+                <span class="lang-es">Planes</span>
+            </a>
+            <a href="#faq" onclick="toggleMobileMenu()" class="hover:text-blue-600 transition-colors">
+                <span class="lang-en">FAQ</span>
+                <span class="lang-es">Preguntas</span>
+            </a>
+            <a href="#footer" onclick="toggleMobileMenu()" class="hover:text-blue-600 transition-colors">
+                <span class="lang-en">Contact</span>
+                <span class="lang-es">Contacto</span>
+            </a>
+            <a href="https://wa.me/34623282101" class="flex items-center gap-2 bg-zinc-900 text-white text-sm font-semibold px-6 py-3 rounded-full mt-4">
+                <iconify-icon icon="lucide:phone" width="14"></iconify-icon>
+                (305) 555-0199
+            </a>
+        </nav>
+    </div>
 
     <!-- Hero Section -->
     <header class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
@@ -222,7 +295,7 @@
                 <!-- Hero Image -->
                 <div class="lg:w-1/2 relative">
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 aspect-[4/5] lg:aspect-square">
-                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&amp;w=2069&amp;auto=format&amp;fit=crop" alt="Friendly Handyman" class="object-cover w-full h-full">
+                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&amp;w=2069&amp;auto=format&amp;fit=crop" alt="Friendly handyman from Miami Fix ready to help" class="object-cover w-full h-full" width="600" height="600">
                         
                         <div class="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur p-4 rounded-xl border border-white/20 shadow-lg">
                             <div class="flex gap-1 text-orange-400 mb-2">
@@ -268,7 +341,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Project 1 -->
                 <div class="group relative rounded-2xl overflow-hidden aspect-[4/5] bg-zinc-100">
-    <img src="img/handyman-kitchen.jpeg" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
+    <img src="img/handyman-kitchen.jpeg" alt="Kitchen cabinet installation project" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" loading="lazy" width="400" height="500">
     
     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-6 flex flex-col justify-end">
         <span class="text-xs font-bold text-blue-300 mb-1 uppercase tracking-wide">Kitchen</span>
@@ -277,7 +350,7 @@
 </div>
                 <!-- Project 2 -->
                 <div class="group relative rounded-2xl overflow-hidden aspect-[4/5] bg-zinc-100">
-                    <img src="https://images.unsplash.com/photo-1621905252507-b35a830136e9?q=80&amp;w=800&amp;auto=format&amp;fit=crop" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
+                    <img src="https://images.unsplash.com/photo-1621905252507-b35a830136e9?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Smart light setup project" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" loading="lazy" width="400" height="500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-6 flex flex-col justify-end">
                         <span class="text-xs font-bold text-blue-300 mb-1 uppercase tracking-wide">Electrical</span>
                         <h3 class="text-white font-bold text-lg">Smart Light Setup</h3>
@@ -285,7 +358,7 @@
                 </div>
                 <!-- Project 3 -->
                 <div class="group relative rounded-2xl overflow-hidden aspect-[4/5] bg-zinc-100">
-                    <img src="https://images.unsplash.com/photo-1584622050111-993a426fbf0a?q=80&amp;w=800&amp;auto=format&amp;fit=crop" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
+                    <img src="https://images.unsplash.com/photo-1584622050111-993a426fbf0a?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Plumbing leak repair project" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" loading="lazy" width="400" height="500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-6 flex flex-col justify-end">
                         <span class="text-xs font-bold text-blue-300 mb-1 uppercase tracking-wide">Plumbing</span>
                         <h3 class="text-white font-bold text-lg">Leak Repair</h3>
@@ -293,7 +366,7 @@
                 </div>
                 <!-- Project 4 -->
                 <div class="group relative rounded-2xl overflow-hidden aspect-[4/5] bg-zinc-100">
-                    <img src="https://images.unsplash.com/photo-1595814433015-e6f5ce69614e?q=80&amp;w=800&amp;auto=format&amp;fit=crop" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
+                    <img src="https://images.unsplash.com/photo-1595814433015-e6f5ce69614e?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Exterior painting refresh project" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" loading="lazy" width="400" height="500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-6 flex flex-col justify-end">
                         <span class="text-xs font-bold text-blue-300 mb-1 uppercase tracking-wide">Painting</span>
                         <h3 class="text-white font-bold text-lg">Exterior Refresh</h3>
@@ -378,7 +451,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-200 transition-all duration-300 hover:shadow-lg hover:border-blue-500">
                 <div class="flex items-center mb-4">
-                    <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1975607e9-1763295500639.png" class="w-12 h-12 rounded-full mr-4 object-cover border border-zinc-200">
+                    <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1975607e9-1763295500639.png" alt="Maria Gonzalez" class="w-12 h-12 rounded-full mr-4 object-cover border border-zinc-200" loading="lazy" width="48" height="48">
                     <div>
                         <p class="font-bold text-zinc-900 text-sm">Maria Gonzalez</p>
                         <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">Verified Customer</p>
@@ -393,7 +466,7 @@
 
             <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-200 transition-all duration-300 hover:shadow-lg hover:border-blue-500">
                 <div class="flex items-center mb-4">
-                    <img src="https://img.rocket.new/generatedImages/rocket_gen_img_19cde4c16-1763291996198.png" class="w-12 h-12 rounded-full mr-4 object-cover border border-zinc-200">
+                    <img src="https://img.rocket.new/generatedImages/rocket_gen_img_19cde4c16-1763291996198.png" alt="Robert Thompson" class="w-12 h-12 rounded-full mr-4 object-cover border border-zinc-200" loading="lazy" width="48" height="48">
                     <div>
                         <p class="font-bold text-zinc-900 text-sm">Robert Thompson</p>
                         <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">Property Manager</p>
@@ -408,7 +481,7 @@
 
             <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-200 transition-all duration-300 hover:shadow-lg hover:border-blue-500">
                 <div class="flex items-center mb-4">
-                    <img src="https://img.rocket.new/generatedImages/rocket_gen_img_125201d6e-1763293929099.png" class="w-12 h-12 rounded-full mr-4 object-cover border border-zinc-200">
+                    <img src="https://img.rocket.new/generatedImages/rocket_gen_img_125201d6e-1763293929099.png" alt="Michael Johnson" class="w-12 h-12 rounded-full mr-4 object-cover border border-zinc-200" loading="lazy" width="48" height="48">
                     <div>
                         <p class="font-bold text-zinc-900 text-sm">Michael Johnson</p>
                         <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">Homeowner</p>
@@ -446,8 +519,8 @@
             <div class="flex justify-center mb-16">
                 <div class="flex items-center gap-4 bg-zinc-800/50 backdrop-blur px-5 py-2 rounded-full border border-zinc-700">
                     <span class="text-sm font-medium text-white">Monthly</span>
-                    <label for="pricing-toggle" class="relative inline-block w-12 h-6">
-                        <input type="checkbox" id="pricing-toggle" class="toggle-checkbox absolute w-0 h-0 opacity-0" onchange="togglePricing()">
+                    <label for="pricing-toggle" class="relative inline-block w-12 h-6" aria-label="Toggle annual pricing">
+                        <input type="checkbox" id="pricing-toggle" class="toggle-checkbox absolute w-0 h-0 opacity-0" onchange="togglePricing()" aria-label="Switch between monthly and annual pricing">
                         <div class="toggle-label bg-zinc-600"></div>
                     </label>
                     <span class="text-sm font-medium text-white">Annual <span class="text-green-400 text-xs ml-1 font-bold">(-15%)</span></span>
@@ -682,9 +755,9 @@
         <div class="flex flex-col lg:flex-row gap-16 items-center">
             <div class="lg:w-1/2">
                 <div class="relative">
-                    <img src="img/familia-rodriguez.png" 
-                         class="rounded-3xl object-cover h-[450px] w-full shadow-2xl" 
-                         alt="Miami Fix Family">
+                    <img src="img/familia-rodriguez.png"
+                         class="rounded-3xl object-cover h-[450px] w-full shadow-2xl"
+                         alt="The Rodriguez family, founders of Miami Fix" loading="lazy" width="600" height="450">
                     <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl -z-10"></div>
                 </div>
             </div>
@@ -738,9 +811,9 @@
                     </div>
                     
                     <div class="flex gap-4">
-                        <a href="#" class="text-zinc-400 hover:text-white transition-colors"><iconify-icon icon="lucide:instagram" width="20"></iconify-icon></a>
-                        <a href="#" class="text-zinc-400 hover:text-white transition-colors"><iconify-icon icon="lucide:facebook" width="20"></iconify-icon></a>
-                        <a href="#" class="text-zinc-400 hover:text-white transition-colors"><iconify-icon icon="lucide:mail" width="20"></iconify-icon></a>
+                        <a href="#" class="text-zinc-400 hover:text-white transition-colors" aria-label="Instagram"><iconify-icon icon="lucide:instagram" width="20"></iconify-icon></a>
+                        <a href="#" class="text-zinc-400 hover:text-white transition-colors" aria-label="Facebook"><iconify-icon icon="lucide:facebook" width="20"></iconify-icon></a>
+                        <a href="#" class="text-zinc-400 hover:text-white transition-colors" aria-label="Email"><iconify-icon icon="lucide:mail" width="20"></iconify-icon></a>
                     </div>
                 </div>
 
@@ -752,10 +825,19 @@
                     </h3>
                     <form name="contacto-miami" method="POST" data-netlify="true" class="space-y-4">
                         <div class="grid grid-cols-2 gap-4">
-                            <input name="nombre" type="text" placeholder="Name / Nombre" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-all">
-                            <input name="telefono" type="tel" placeholder="Phone / Teléfono" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-all">
+                            <div>
+                                <label for="contact-name" class="sr-only">Name / Nombre</label>
+                                <input id="contact-name" name="nombre" type="text" placeholder="Name / Nombre" autocomplete="name" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-all">
+                            </div>
+                            <div>
+                                <label for="contact-phone" class="sr-only">Phone / Teléfono</label>
+                                <input id="contact-phone" name="telefono" type="tel" placeholder="Phone / Teléfono" autocomplete="tel" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-all">
+                            </div>
                         </div>
-                        <textarea name="mensaje" rows="3" placeholder="How can we help? / ¿Cómo podemos ayudar?" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-all"></textarea>
+                        <div>
+                            <label for="contact-message" class="sr-only">Message / Mensaje</label>
+                            <textarea id="contact-message" name="mensaje" rows="3" placeholder="How can we help? / ¿Cómo podemos ayudar?" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-all"></textarea>
+                        </div>
                         <button type="submit" class="w-full bg-white text-zinc-950 font-bold py-3 rounded-lg hover:bg-zinc-200 transition-colors">
                             <span class="lang-en">Send Message</span>
                             <span class="lang-es">Enviar Mensaje</span>
@@ -765,13 +847,13 @@
             </div>
 
             <div class="border-t border-zinc-900 pt-8 text-center text-xs text-zinc-500">
-                © 2023 MiamiFix Services. Family owned &amp; operated.
+                © 2025 MiamiFix Services. Family owned &amp; operated.
             </div>
         </div>
     </footer>
 
     <!-- WhatsApp Sticky Floating Button -->
-    <a href="https://wa.me/34623282101" class="fixed bottom-6 right-6 z-50 group shadow-2xl shadow-green-600/30 rounded-full">
+    <a href="https://wa.me/34623282101" class="fixed bottom-6 right-6 z-50 group shadow-2xl shadow-green-600/30 rounded-full" aria-label="Chat with us on WhatsApp">
         <span class="absolute -top-1 -right-1 flex h-3 w-3">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
