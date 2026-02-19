@@ -254,13 +254,13 @@ tailwind.config = {
                     </div>
                     
                     <h1 class="text-4xl sm:text-5xl lg:text-7xl font-manrope font-bold text-zinc-900 tracking-tight leading-[1.1] mb-6 group cursor-default">
-                        <span class="lang-en">Your home's new <br><span class="highlight-text text-blue-900">best friend.</span></span>
-                        <span class="lang-es">El nuevo <br><span class="highlight-text text-blue-900">mejor amigo de tu hogar.</span></span>
+                        <span class="lang-en">Real neighbors.<br><span class="highlight-text text-blue-900">Honest repairs.</span></span>
+                        <span class="lang-es">Vecinos reales.<br><span class="highlight-text text-blue-900">Reparaciones honestas.</span></span>
                     </h1>
-                    
+
                     <p class="text-lg text-zinc-600 mb-8 max-w-lg leading-relaxed">
-                        <span class="lang-en">We fix what's broken, mount what's new, and maintain what matters. <span class="font-semibold text-zinc-900">And we promise to clean up afterwards.</span> Fast service, fair prices, and always with a smile.</span>
-                        <span class="lang-es">Reparamos lo roto, instalamos lo nuevo y mantenemos lo importante. <span class="font-semibold text-zinc-900">Y prometemos limpiar después.</span> Servicio rápido, precios justos y siempre con una sonrisa.</span>
+                        <span class="lang-en">We're a family of specialists — plumbers, electricians, painters and more — who show up on time, work clean, and don't leave until <span class="font-semibold text-zinc-900">you're happy.</span> Because your home deserves people who actually care.</span>
+                        <span class="lang-es">Somos una familia de especialistas — plomeros, electricistas, pintores y más — que llegamos a tiempo, trabajamos limpio y no nos vamos hasta que <span class="font-semibold text-zinc-900">estés contento/a.</span> Porque tu hogar merece gente que realmente se preocupa.</span>
                     </p>
 
                     <!-- Urgent Action Block -->
@@ -300,7 +300,21 @@ tailwind.config = {
                 <!-- Hero Image -->
                 <div class="lg:w-1/2 relative">
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 aspect-[4/5] lg:aspect-square">
-                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&amp;w=2069&amp;auto=format&amp;fit=crop" alt="Friendly handyman from Miami Fix ready to help" class="object-cover w-full h-full" width="600" height="600">
+                        <!-- Mosaico 2×2 con fotos reales del equipo -->
+                        <div class="absolute inset-0 grid grid-cols-2 gap-1.5 p-1.5 bg-zinc-100">
+                            <div class="overflow-hidden rounded-xl">
+                                <img src="img/hombre-sonriente.png" alt="MiamiFix handyman ready to help" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" width="300" height="300">
+                            </div>
+                            <div class="overflow-hidden rounded-xl">
+                                <img src="img/handyman-kitchen.jpeg" alt="Kitchen repair by MiamiFix" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" width="300" height="300">
+                            </div>
+                            <div class="overflow-hidden rounded-xl">
+                                <img src="img/hombre-instalando-tv.png" alt="TV installation by MiamiFix" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" width="300" height="300">
+                            </div>
+                            <div class="overflow-hidden rounded-xl">
+                                <img src="img/mujer-pintando-pared.png" alt="Interior painting by MiamiFix" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" width="300" height="300">
+                            </div>
+                        </div>
                         
                         <div class="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur p-4 rounded-xl border border-white/20 shadow-lg">
                             <div class="flex gap-1 text-orange-400 mb-2">
@@ -1012,6 +1026,227 @@ tailwind.config = {
         </div>
     </div>
 </section>
+
+    <!-- Conocé al Equipo -->
+    <section id="equipo" class="py-24 bg-zinc-50 border-t border-zinc-100">
+        <div class="max-w-6xl mx-auto px-6">
+
+            <!-- Encabezado -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-manrope font-bold text-zinc-900 mb-4">
+                    <span class="lang-en">Meet who's coming to your home</span>
+                    <span class="lang-es">Conocé quién viene a tu casa</span>
+                </h2>
+                <p class="text-zinc-500 leading-relaxed">
+                    <span class="lang-en">We're a family business where everyone has their specialty, but together we can handle whatever you need — always at the best prices, clean, fast, and done right.</span>
+                    <span class="lang-es">Somos una empresa familiar donde cada uno tiene su especialidad, pero juntos podemos hacer lo que usted necesite — siempre con los mejores precios, limpios, rápidos y bien hechos.</span>
+                </p>
+            </div>
+
+            <!-- Grid del equipo: 2 cols mobile / 4 cols tablet+ -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-10">
+
+                <!-- El Dueño — destacado -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="relative mb-4">
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-4 ring-blue-600/25 shadow-xl">
+                            <img src="img/quienes-somos/el-duenio.png" alt="Fundador de MiamiFix" class="w-full h-full object-cover" loading="lazy" width="112" height="112">
+                        </div>
+                        <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-[9px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full whitespace-nowrap shadow">
+                            <span class="lang-es">Fundador</span>
+                            <span class="lang-en">Founder</span>
+                        </span>
+                    </div>
+                    <p class="font-bold text-zinc-900 text-sm mt-1">Carlos</p>
+                    <p class="text-zinc-400 text-xs mt-0.5">
+                        <span class="lang-es">Dueño & Arreglos Generales</span>
+                        <span class="lang-en">Owner & General Repairs</span>
+                    </p>
+                </div>
+
+                <!-- Betty — Recepción -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-2 ring-zinc-200 shadow-md mb-4">
+                        <img src="img/quienes-somos/betty-recepcion.png" alt="Betty" class="w-full h-full object-cover" loading="lazy" width="112" height="112">
+                    </div>
+                    <p class="font-bold text-zinc-900 text-sm">Betty</p>
+                    <p class="text-zinc-400 text-xs mt-0.5">
+                        <span class="lang-es">Recepción</span>
+                        <span class="lang-en">Reception</span>
+                    </p>
+                </div>
+
+                <!-- Carla — Contadora -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-2 ring-zinc-200 shadow-md mb-4">
+                        <img src="img/quienes-somos/carla-contadora.png" alt="Carla" class="w-full h-full object-cover" loading="lazy" width="112" height="112">
+                    </div>
+                    <p class="font-bold text-zinc-900 text-sm">Carla</p>
+                    <p class="text-zinc-400 text-xs mt-0.5">
+                        <span class="lang-es">Contadora</span>
+                        <span class="lang-en">Accountant</span>
+                    </p>
+                </div>
+
+                <!-- Tony — Electricista -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-2 ring-zinc-200 shadow-md mb-4">
+                        <img src="img/quienes-somos/tony-electricista.png" alt="Tony" class="w-full h-full object-cover" loading="lazy" width="112" height="112">
+                    </div>
+                    <p class="font-bold text-zinc-900 text-sm">Tony</p>
+                    <p class="text-zinc-400 text-xs mt-0.5">
+                        <span class="lang-es">Electricista</span>
+                        <span class="lang-en">Electrician</span>
+                    </p>
+                </div>
+
+                <!-- Alberto — Pintura -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-2 ring-zinc-200 shadow-md mb-4">
+                        <img src="img/quienes-somos/alberto-pintura.png" alt="Alberto" class="w-full h-full object-cover" loading="lazy" width="112" height="112">
+                    </div>
+                    <p class="font-bold text-zinc-900 text-sm">Alberto</p>
+                    <p class="text-zinc-400 text-xs mt-0.5">
+                        <span class="lang-es">Pintura</span>
+                        <span class="lang-en">Painting</span>
+                    </p>
+                </div>
+
+                <!-- Alejandro — Fontanería -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-2 ring-zinc-200 shadow-md mb-4">
+                        <img src="img/quienes-somos/alejandro-fontaneria.png" alt="Alejandro" class="w-full h-full object-cover" loading="lazy" width="112" height="112">
+                    </div>
+                    <p class="font-bold text-zinc-900 text-sm">Alejandro</p>
+                    <p class="text-zinc-400 text-xs mt-0.5">
+                        <span class="lang-es">Fontanería</span>
+                        <span class="lang-en">Plumbing</span>
+                    </p>
+                </div>
+
+                <!-- Amalia — Fontanería -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-2 ring-zinc-200 shadow-md mb-4">
+                        <img src="img/quienes-somos/amalia-fontaneria.png" alt="Amalia" class="w-full h-full object-cover" loading="lazy" width="112" height="112">
+                    </div>
+                    <p class="font-bold text-zinc-900 text-sm">Amalia</p>
+                    <p class="text-zinc-400 text-xs mt-0.5">
+                        <span class="lang-es">Fontanería</span>
+                        <span class="lang-en">Plumbing</span>
+                    </p>
+                </div>
+
+                <!-- Ana Laura — Muebles y Apliques -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-2 ring-zinc-200 shadow-md mb-4">
+                        <img src="img/quienes-somos/ana-laura-muebles-y-apliques.png" alt="Ana Laura" class="w-full h-full object-cover" loading="lazy" width="112" height="112">
+                    </div>
+                    <p class="font-bold text-zinc-900 text-sm">Ana Laura</p>
+                    <p class="text-zinc-400 text-xs mt-0.5">
+                        <span class="lang-es">Muebles & Apliques</span>
+                        <span class="lang-en">Furniture & Fixtures</span>
+                    </p>
+                </div>
+
+                <!-- Ana María — Decoradora -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-2 ring-zinc-200 shadow-md mb-4">
+                        <img src="img/quienes-somos/ana-maria-decoradora.png" alt="Ana María" class="w-full h-full object-cover" loading="lazy" width="112" height="112">
+                    </div>
+                    <p class="font-bold text-zinc-900 text-sm">Ana María</p>
+                    <p class="text-zinc-400 text-xs mt-0.5">
+                        <span class="lang-es">Decoradora</span>
+                        <span class="lang-en">Decorator</span>
+                    </p>
+                </div>
+
+                <!-- Arnaldo — Paredes en Seco -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-2 ring-zinc-200 shadow-md mb-4">
+                        <img src="img/quienes-somos/arnaldo-instalacion-paredes-en-seco.png" alt="Arnaldo" class="w-full h-full object-cover" loading="lazy" width="112" height="112">
+                    </div>
+                    <p class="font-bold text-zinc-900 text-sm">Arnaldo</p>
+                    <p class="text-zinc-400 text-xs mt-0.5">
+                        <span class="lang-es">Paredes en Seco</span>
+                        <span class="lang-en">Drywall</span>
+                    </p>
+                </div>
+
+                <!-- Candelaria — Armado de Muebles -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-2 ring-zinc-200 shadow-md mb-4">
+                        <img src="img/quienes-somos/candelaria-armado-de-muebles.png" alt="Candelaria" class="w-full h-full object-cover" loading="lazy" width="112" height="112">
+                    </div>
+                    <p class="font-bold text-zinc-900 text-sm">Candelaria</p>
+                    <p class="text-zinc-400 text-xs mt-0.5">
+                        <span class="lang-es">Armado de Muebles</span>
+                        <span class="lang-en">Furniture Assembly</span>
+                    </p>
+                </div>
+
+                <!-- Carlos Alberto — Fontanería -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-2 ring-zinc-200 shadow-md mb-4">
+                        <img src="img/quienes-somos/carlos-alberto-fontaneria.png" alt="Carlos Alberto" class="w-full h-full object-cover" loading="lazy" width="112" height="112">
+                    </div>
+                    <p class="font-bold text-zinc-900 text-sm">Carlos Alberto</p>
+                    <p class="text-zinc-400 text-xs mt-0.5">
+                        <span class="lang-es">Fontanería</span>
+                        <span class="lang-en">Plumbing</span>
+                    </p>
+                </div>
+
+                <!-- Carlos — Arreglos Generales -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-2 ring-zinc-200 shadow-md mb-4">
+                        <img src="img/quienes-somos/carlos-arreglos-generales.png" alt="Carlos" class="w-full h-full object-cover" loading="lazy" width="112" height="112">
+                    </div>
+                    <p class="font-bold text-zinc-900 text-sm">Carlos</p>
+                    <p class="text-zinc-400 text-xs mt-0.5">
+                        <span class="lang-es">Arreglos Generales</span>
+                        <span class="lang-en">General Repairs</span>
+                    </p>
+                </div>
+
+                <!-- João — Pisos -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-2 ring-zinc-200 shadow-md mb-4">
+                        <img src="img/quienes-somos/joao-pisos.png" alt="João" class="w-full h-full object-cover" loading="lazy" width="112" height="112">
+                    </div>
+                    <p class="font-bold text-zinc-900 text-sm">João</p>
+                    <p class="text-zinc-400 text-xs mt-0.5">
+                        <span class="lang-es">Pisos</span>
+                        <span class="lang-en">Flooring</span>
+                    </p>
+                </div>
+
+                <!-- Pablo — Arreglos Generales -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-2 ring-zinc-200 shadow-md mb-4">
+                        <img src="img/quienes-somos/pablo-arreglos-generales.png" alt="Pablo" class="w-full h-full object-cover" loading="lazy" width="112" height="112">
+                    </div>
+                    <p class="font-bold text-zinc-900 text-sm">Pablo</p>
+                    <p class="text-zinc-400 text-xs mt-0.5">
+                        <span class="lang-es">Arreglos Generales</span>
+                        <span class="lang-en">General Repairs</span>
+                    </p>
+                </div>
+
+                <!-- Fixit — el perro de la familia -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-2 ring-orange-200 shadow-md mb-4">
+                        <img src="img/quienes-somos/fixit.png" alt="Fixit, la mascota de MiamiFix" class="w-full h-full object-cover" loading="lazy" width="112" height="112">
+                    </div>
+                    <p class="font-bold text-zinc-900 text-sm">Fixit</p>
+                    <p class="text-zinc-400 text-xs mt-0.5">
+                        <span class="lang-es">Jefe de Moral</span>
+                        <span class="lang-en">Chief Morale Officer</span>
+                    </p>
+                </div>
+
+            </div><!-- /grid -->
+        </div>
+    </section>
 
     <!-- Dark Footer with Contact Form & Yelp -->
     <footer id="footer" class="bg-zinc-950 text-white border-t border-zinc-800 pt-16 pb-12">
