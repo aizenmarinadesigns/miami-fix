@@ -136,6 +136,16 @@ tailwind.config = {
         }
     }
 
+    function toggleEquipo() {
+        const extra = document.getElementById('equipo-extra');
+        const icon = document.getElementById('equipo-btn-icon');
+        const isHidden = extra.style.display === 'none';
+        extra.style.display = isHidden ? 'contents' : 'none';
+        icon.setAttribute('icon', isHidden ? 'lucide:chevron-up' : 'lucide:chevron-down');
+        document.getElementById('equipo-label-es').textContent = isHidden ? 'Ver menos' : 'Ver el resto del equipo';
+        document.getElementById('equipo-label-en').textContent = isHidden ? 'Show less' : 'Meet the full team';
+    }
+
     function togglePricing() {
         const isAnnual = document.getElementById('pricing-toggle').checked;
         const monthlyPrices = document.querySelectorAll('.price-monthly');
@@ -602,6 +612,61 @@ tailwind.config = {
                                         <span class="lang-es">Inversión</span><span class="lang-en">Investment</span>
                                     </p>
                                     <p class="text-sm font-bold text-blue-600">$260</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ─────────────────────────────────────────────────────
+                         Card 5 — Brickell
+                         Servicio: Instalación Cortina Automática
+                         Imagen: img/before-after/cortina-automatica.jpg
+                         ───────────────────────────────────────────────────── -->
+                    <div class="trabajos-card group shrink-0 bg-white rounded-2xl border border-zinc-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">
+                        <div class="relative overflow-hidden aspect-video bg-zinc-100">
+                            <img
+                                src="img/before-after/cortina-automatica.jpg"
+                                onerror="this.onerror=null;this.src='img/handyman-kitchen.jpeg'"
+                                alt="Instalación de cortina automática en Brickell — antes y después"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                loading="lazy" width="600" height="338">
+                            <span class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full select-none">
+                                <span class="lang-es">Antes</span>
+                                <span class="lang-en">Before</span>
+                            </span>
+                            <span class="absolute top-3 right-3 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full select-none">
+                                <span class="lang-es">Después</span>
+                                <span class="lang-en">After</span>
+                            </span>
+                        </div>
+                        <div class="p-5">
+                            <div class="grid grid-cols-2 gap-y-4">
+                                <div>
+                                    <p class="text-[10px] font-semibold uppercase tracking-widest text-zinc-400 mb-0.5">
+                                        <span class="lang-es">Ubicación</span><span class="lang-en">Location</span>
+                                    </p>
+                                    <p class="text-sm font-bold text-zinc-900">Brickell</p>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] font-semibold uppercase tracking-widest text-zinc-400 mb-0.5">
+                                        <span class="lang-es">Tiempo</span><span class="lang-en">Time</span>
+                                    </p>
+                                    <p class="text-sm font-bold text-zinc-900">2 hrs</p>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] font-semibold uppercase tracking-widest text-zinc-400 mb-0.5">
+                                        <span class="lang-es">Servicio</span><span class="lang-en">Service</span>
+                                    </p>
+                                    <p class="text-sm font-bold text-zinc-900">
+                                        <span class="lang-es">Cortina Automática</span>
+                                        <span class="lang-en">Motorized Curtain</span>
+                                    </p>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] font-semibold uppercase tracking-widest text-zinc-400 mb-0.5">
+                                        <span class="lang-es">Inversión</span><span class="lang-en">Investment</span>
+                                    </p>
+                                    <p class="text-sm font-bold text-blue-600">$180</p>
                                 </div>
                             </div>
                         </div>
@@ -1136,6 +1201,21 @@ tailwind.config = {
                     </p>
                 </div>
 
+                <!-- Fixit — el perro de la familia -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-2 ring-orange-200 shadow-md mb-4">
+                        <img src="img/quienes-somos/fixit.png" alt="Fixit, la mascota de MiamiFix" class="w-full h-full object-cover" loading="lazy" width="112" height="112">
+                    </div>
+                    <p class="font-bold text-zinc-900 text-sm">Fixit</p>
+                    <p class="text-zinc-400 text-xs mt-0.5">
+                        <span class="lang-es">Jefe de Moral</span>
+                        <span class="lang-en">Chief Morale Officer</span>
+                    </p>
+                </div>
+
+                <!-- Miembros adicionales (ocultos por defecto) -->
+                <div id="equipo-extra" style="display: none;" class="contents">
+
                 <!-- Ana Laura — Muebles y Apliques -->
                 <div class="flex flex-col items-center text-center">
                     <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-2 ring-zinc-200 shadow-md mb-4">
@@ -1232,19 +1312,19 @@ tailwind.config = {
                     </p>
                 </div>
 
-                <!-- Fixit — el perro de la familia -->
-                <div class="flex flex-col items-center text-center">
-                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-2 ring-orange-200 shadow-md mb-4">
-                        <img src="img/quienes-somos/fixit.png" alt="Fixit, la mascota de MiamiFix" class="w-full h-full object-cover" loading="lazy" width="112" height="112">
-                    </div>
-                    <p class="font-bold text-zinc-900 text-sm">Fixit</p>
-                    <p class="text-zinc-400 text-xs mt-0.5">
-                        <span class="lang-es">Jefe de Moral</span>
-                        <span class="lang-en">Chief Morale Officer</span>
-                    </p>
-                </div>
+                </div><!-- /equipo-extra -->
 
             </div><!-- /grid -->
+
+            <!-- Botón Ver más / Ver menos -->
+            <div class="text-center mt-10">
+                <button onclick="toggleEquipo()" id="equipo-toggle-btn" class="inline-flex items-center gap-2 text-sm font-semibold text-zinc-600 hover:text-zinc-900 border border-zinc-200 hover:border-zinc-300 bg-white px-6 py-3 rounded-full transition-all shadow-sm hover:shadow">
+                    <span class="lang-es" id="equipo-label-es">Ver el resto del equipo</span>
+                    <span class="lang-en" id="equipo-label-en">Meet the full team</span>
+                    <iconify-icon icon="lucide:chevron-down" width="16" id="equipo-btn-icon"></iconify-icon>
+                </button>
+            </div>
+
         </div>
     </section>
 
