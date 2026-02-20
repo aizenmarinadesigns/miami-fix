@@ -111,6 +111,17 @@ tailwind.config = {
     @media (max-width: 374px) {
         .lang-toggle-text { display: none !important; }
     }
+    /* Reviews infinite marquee */
+    @keyframes marquee-scroll {
+        0%   { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+    .reviews-marquee {
+        animation: marquee-scroll 40s linear infinite;
+    }
+    .reviews-marquee:hover {
+        animation-play-state: paused;
+    }
 </style>
 <script>
     function toggleLanguage() {
@@ -813,123 +824,235 @@ tailwind.config = {
             </p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Infinite marquee wrapper -->
+        <div class="overflow-hidden relative">
+            <div class="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+            <div class="reviews-marquee flex gap-6" style="width: max-content;">
 
-            <!-- 1 — María González -->
-            <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-200 transition-all duration-300 hover:shadow-lg hover:border-blue-500">
-                <div class="flex items-center mb-4">
-                    <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1975607e9-1763295500639.png" alt="María González" class="w-12 h-12 rounded-full mr-4 object-cover border border-zinc-200" loading="lazy" width="48" height="48">
-                    <div>
-                        <p class="font-bold text-zinc-900 text-sm">María González</p>
-                        <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">
-                            <span class="lang-en">Homeowner · Coral Gables</span>
-                            <span class="lang-es">Propietaria · Coral Gables</span>
-                        </p>
+                <!-- ── SET 1 ── -->
+
+                <!-- 1 — María González -->
+                <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-200 hover:shadow-lg hover:border-blue-500 transition-all duration-300 min-w-[320px] max-w-[320px]">
+                    <div class="flex items-center mb-4">
+                        <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1975607e9-1763295500639.png" alt="María González" class="w-12 h-12 rounded-full mr-4 object-cover border border-zinc-200" loading="lazy" width="48" height="48">
+                        <div>
+                            <p class="font-bold text-zinc-900 text-sm">María González</p>
+                            <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">
+                                <span class="lang-en">Homeowner · Coral Gables</span>
+                                <span class="lang-es">Propietaria · Coral Gables</span>
+                            </p>
+                        </div>
                     </div>
+                    <div class="flex text-yellow-400 mb-3 text-xs">★★★★★</div>
+                    <p class="text-zinc-600 text-sm leading-relaxed italic">
+                        <span class="lang-en">"I called three handymen and none showed up. MiamiFix was here in two hours and fixed the leak. I'll never call anyone else."</span>
+                        <span class="lang-es">"Llamé a tres y ninguno apareció. MiamiFix llegó en dos horas y me resolvió la fuga. Nunca más llamo a nadie más."</span>
+                    </p>
                 </div>
-                <div class="flex text-yellow-400 mb-3 text-xs">★★★★★</div>
-                <p class="text-zinc-600 text-sm leading-relaxed italic">
-                    <span class="lang-en">"I called three handymen and none showed up. MiamiFix was here in two hours and fixed the leak. I'll never call anyone else."</span>
-                    <span class="lang-es">"Llamé a tres y ninguno apareció. MiamiFix llegó en dos horas y me resolvió la fuga. Nunca más llamo a nadie más."</span>
-                </p>
-            </div>
 
-            <!-- 2 — Luis Fernández -->
-            <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-200 transition-all duration-300 hover:shadow-lg hover:border-blue-500">
-                <div class="flex items-center mb-4">
-                    <div class="w-12 h-12 rounded-full mr-4 flex items-center justify-center bg-blue-600 text-white font-bold text-sm shrink-0">LF</div>
-                    <div>
-                        <p class="font-bold text-zinc-900 text-sm">Luis Fernández</p>
-                        <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">
-                            <span class="lang-en">Property Manager · Wynwood</span>
-                            <span class="lang-es">Administrador · Wynwood</span>
-                        </p>
+                <!-- 2 — Luis Fernández -->
+                <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-200 hover:shadow-lg hover:border-blue-500 transition-all duration-300 min-w-[320px] max-w-[320px]">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full mr-4 flex items-center justify-center bg-blue-600 text-white font-bold text-sm shrink-0">LF</div>
+                        <div>
+                            <p class="font-bold text-zinc-900 text-sm">Luis Fernández</p>
+                            <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">
+                                <span class="lang-en">Property Manager · Wynwood</span>
+                                <span class="lang-es">Administrador · Wynwood</span>
+                            </p>
+                        </div>
                     </div>
+                    <div class="flex text-yellow-400 mb-3 text-xs">★★★★★</div>
+                    <p class="text-zinc-600 text-sm leading-relaxed italic">
+                        <span class="lang-en">"I manage 12 units in Miami-Dade. With MiamiFix I handle everything from my phone. They show up, fix it, send photos. I don't have to move."</span>
+                        <span class="lang-es">"Manejo 12 unidades en Miami-Dade. Con MiamiFix coordino todo desde el teléfono. Llegan, arreglan, mandan fotos. No tengo que moverme."</span>
+                    </p>
                 </div>
-                <div class="flex text-yellow-400 mb-3 text-xs">★★★★★</div>
-                <p class="text-zinc-600 text-sm leading-relaxed italic">
-                    <span class="lang-en">"I manage 12 units in Miami-Dade. With MiamiFix I handle everything from my phone. They show up, fix it, send photos. I don't have to move."</span>
-                    <span class="lang-es">"Manejo 12 unidades en Miami-Dade. Con MiamiFix coordino todo desde el teléfono. Llegan, arreglan, mandan fotos. No tengo que moverme."</span>
-                </p>
-            </div>
 
-            <!-- 3 — Andrés Morales -->
-            <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-200 transition-all duration-300 hover:shadow-lg hover:border-blue-500">
-                <div class="flex items-center mb-4">
-                    <div class="w-12 h-12 rounded-full mr-4 flex items-center justify-center bg-emerald-600 text-white font-bold text-sm shrink-0">AM</div>
-                    <div>
-                        <p class="font-bold text-zinc-900 text-sm">Andrés Morales</p>
-                        <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">
-                            <span class="lang-en">Smart Member · Kendall</span>
-                            <span class="lang-es">Miembro · Kendall</span>
-                        </p>
+                <!-- 3 — Andrés Morales -->
+                <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-200 hover:shadow-lg hover:border-blue-500 transition-all duration-300 min-w-[320px] max-w-[320px]">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full mr-4 flex items-center justify-center bg-emerald-600 text-white font-bold text-sm shrink-0">AM</div>
+                        <div>
+                            <p class="font-bold text-zinc-900 text-sm">Andrés Morales</p>
+                            <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">
+                                <span class="lang-en">Smart Member · Kendall</span>
+                                <span class="lang-es">Miembro · Kendall</span>
+                            </p>
+                        </div>
                     </div>
+                    <div class="flex text-yellow-400 mb-3 text-xs">★★★★★</div>
+                    <p class="text-zinc-600 text-sm leading-relaxed italic">
+                        <span class="lang-en">"I thought the membership was expensive. After the first visit I got it: $65/hr instead of $85, zero trip fee. Easy math."</span>
+                        <span class="lang-es">"Pensé que era caro. Después de la primera visita entendí: $65 la hora en vez de $85, sin costo de viaje. Matemática fácil."</span>
+                    </p>
                 </div>
-                <div class="flex text-yellow-400 mb-3 text-xs">★★★★★</div>
-                <p class="text-zinc-600 text-sm leading-relaxed italic">
-                    <span class="lang-en">"I thought the membership was expensive. After the first visit I got it: $65/hr instead of $85, zero trip fee. Easy math."</span>
-                    <span class="lang-es">"Pensé que era caro. Después de la primera visita entendí: $65 la hora en vez de $85, sin costo de viaje. Matemática fácil."</span>
-                </p>
-            </div>
 
-            <!-- 4 — Lourdes Suárez -->
-            <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-200 transition-all duration-300 hover:shadow-lg hover:border-blue-500">
-                <div class="flex items-center mb-4">
-                    <div class="w-12 h-12 rounded-full mr-4 flex items-center justify-center bg-violet-600 text-white font-bold text-sm shrink-0">LS</div>
-                    <div>
-                        <p class="font-bold text-zinc-900 text-sm">Lourdes Suárez</p>
-                        <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">
-                            <span class="lang-en">Homeowner · Doral</span>
-                            <span class="lang-es">Propietaria · Doral</span>
-                        </p>
+                <!-- 4 — Lourdes Suárez -->
+                <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-200 hover:shadow-lg hover:border-blue-500 transition-all duration-300 min-w-[320px] max-w-[320px]">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full mr-4 flex items-center justify-center bg-violet-600 text-white font-bold text-sm shrink-0">LS</div>
+                        <div>
+                            <p class="font-bold text-zinc-900 text-sm">Lourdes Suárez</p>
+                            <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">
+                                <span class="lang-en">Homeowner · Doral</span>
+                                <span class="lang-es">Propietaria · Doral</span>
+                            </p>
+                        </div>
                     </div>
+                    <div class="flex text-yellow-400 mb-3 text-xs">★★★★★</div>
+                    <p class="text-zinc-600 text-sm leading-relaxed italic">
+                        <span class="lang-en">"I don't open my door for just anyone. With MiamiFix I know exactly who's coming, when, and how my home looks after they leave."</span>
+                        <span class="lang-es">"Ya no le abro la puerta a cualquiera. Con MiamiFix sé exactamente quién viene, cuándo, y cómo queda mi casa después."</span>
+                    </p>
                 </div>
-                <div class="flex text-yellow-400 mb-3 text-xs">★★★★★</div>
-                <p class="text-zinc-600 text-sm leading-relaxed italic">
-                    <span class="lang-en">"I don't open my door for just anyone. With MiamiFix I know exactly who's coming, when, and how my home looks after they leave."</span>
-                    <span class="lang-es">"Ya no le abro la puerta a cualquiera. Con MiamiFix sé exactamente quién viene, cuándo, y cómo queda mi casa después."</span>
-                </p>
-            </div>
 
-            <!-- 5 — Carolina Ríos -->
-            <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-200 transition-all duration-300 hover:shadow-lg hover:border-blue-500">
-                <div class="flex items-center mb-4">
-                    <img src="https://img.rocket.new/generatedImages/rocket_gen_img_125201d6e-1763293929099.png" alt="Carolina Ríos" class="w-12 h-12 rounded-full mr-4 object-cover border border-zinc-200" loading="lazy" width="48" height="48">
-                    <div>
-                        <p class="font-bold text-zinc-900 text-sm">Carolina Ríos</p>
-                        <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">
-                            <span class="lang-en">Homeowner · Brickell</span>
-                            <span class="lang-es">Propietaria · Brickell</span>
-                        </p>
+                <!-- 5 — Carolina Ríos -->
+                <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-200 hover:shadow-lg hover:border-blue-500 transition-all duration-300 min-w-[320px] max-w-[320px]">
+                    <div class="flex items-center mb-4">
+                        <img src="https://img.rocket.new/generatedImages/rocket_gen_img_125201d6e-1763293929099.png" alt="Carolina Ríos" class="w-12 h-12 rounded-full mr-4 object-cover border border-zinc-200" loading="lazy" width="48" height="48">
+                        <div>
+                            <p class="font-bold text-zinc-900 text-sm">Carolina Ríos</p>
+                            <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">
+                                <span class="lang-en">Homeowner · Brickell</span>
+                                <span class="lang-es">Propietaria · Brickell</span>
+                            </p>
+                        </div>
                     </div>
+                    <div class="flex text-yellow-400 mb-3 text-xs">★★★★★</div>
+                    <p class="text-zinc-600 text-sm leading-relaxed italic">
+                        <span class="lang-en">"They speak our language — and not just Spanish. They understand what we need, work clean, and always leave the house better than they found it."</span>
+                        <span class="lang-es">"Hablan nuestro idioma — y no solo el español. Entienden lo que uno necesita, trabajan limpio y siempre dejan la casa mejor que como la encontraron."</span>
+                    </p>
                 </div>
-                <div class="flex text-yellow-400 mb-3 text-xs">★★★★★</div>
-                <p class="text-zinc-600 text-sm leading-relaxed italic">
-                    <span class="lang-en">"They speak our language — and not just Spanish. They understand what we need, work clean, and always leave the house better than they found it."</span>
-                    <span class="lang-es">"Hablan nuestro idioma — y no solo el español. Entienden lo que uno necesita, trabajan limpio y siempre dejan la casa mejor que como la encontraron."</span>
-                </p>
-            </div>
 
-            <!-- 6 — Inversiones Del Sol LLC -->
-            <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-200 transition-all duration-300 hover:shadow-lg hover:border-blue-500">
-                <div class="flex items-center mb-4">
-                    <div class="w-12 h-12 rounded-full mr-4 flex items-center justify-center bg-amber-500 text-white font-bold text-xs shrink-0">IDS</div>
-                    <div>
-                        <p class="font-bold text-zinc-900 text-sm">Inversiones Del Sol LLC</p>
-                        <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">
-                            <span class="lang-en">Real Estate Co. · Miami-Dade</span>
-                            <span class="lang-es">Inmobiliaria · Miami-Dade</span>
-                        </p>
+                <!-- 6 — Inversiones Del Sol LLC -->
+                <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-200 hover:shadow-lg hover:border-blue-500 transition-all duration-300 min-w-[320px] max-w-[320px]">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full mr-4 flex items-center justify-center bg-amber-500 text-white font-bold text-xs shrink-0">IDS</div>
+                        <div>
+                            <p class="font-bold text-zinc-900 text-sm">Inversiones Del Sol LLC</p>
+                            <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">
+                                <span class="lang-en">Real Estate Co. · Miami-Dade</span>
+                                <span class="lang-es">Inmobiliaria · Miami-Dade</span>
+                            </p>
+                        </div>
                     </div>
+                    <div class="flex text-yellow-400 mb-3 text-xs">★★★★★</div>
+                    <p class="text-zinc-600 text-sm leading-relaxed italic">
+                        <span class="lang-en">"As a real estate company we need trust and speed. MiamiFix understands the business and always delivers. They're our maintenance team in Miami."</span>
+                        <span class="lang-es">"Como empresa inmobiliaria necesitamos confianza y rapidez. MiamiFix entiende el negocio y siempre responde. Son nuestro equipo de mantenimiento en Miami."</span>
+                    </p>
                 </div>
-                <div class="flex text-yellow-400 mb-3 text-xs">★★★★★</div>
-                <p class="text-zinc-600 text-sm leading-relaxed italic">
-                    <span class="lang-en">"As a real estate company we need trust and speed. MiamiFix understands the business and always delivers. They're our maintenance team in Miami."</span>
-                    <span class="lang-es">"Como empresa inmobiliaria necesitamos confianza y rapidez. MiamiFix entiende el negocio y siempre responde. Son nuestro equipo de mantenimiento en Miami."</span>
-                </p>
-            </div>
 
-        </div>
+                <!-- ── SET 2 (duplicate for seamless loop) ── -->
+
+                <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-200 hover:shadow-lg hover:border-blue-500 transition-all duration-300 min-w-[320px] max-w-[320px]" aria-hidden="true">
+                    <div class="flex items-center mb-4">
+                        <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1975607e9-1763295500639.png" alt="" class="w-12 h-12 rounded-full mr-4 object-cover border border-zinc-200" width="48" height="48">
+                        <div>
+                            <p class="font-bold text-zinc-900 text-sm">María González</p>
+                            <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">
+                                <span class="lang-en">Homeowner · Coral Gables</span>
+                                <span class="lang-es">Propietaria · Coral Gables</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mb-3 text-xs">★★★★★</div>
+                    <p class="text-zinc-600 text-sm leading-relaxed italic">
+                        <span class="lang-en">"I called three handymen and none showed up. MiamiFix was here in two hours and fixed the leak. I'll never call anyone else."</span>
+                        <span class="lang-es">"Llamé a tres y ninguno apareció. MiamiFix llegó en dos horas y me resolvió la fuga. Nunca más llamo a nadie más."</span>
+                    </p>
+                </div>
+                <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-200 hover:shadow-lg hover:border-blue-500 transition-all duration-300 min-w-[320px] max-w-[320px]" aria-hidden="true">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full mr-4 flex items-center justify-center bg-blue-600 text-white font-bold text-sm shrink-0">LF</div>
+                        <div>
+                            <p class="font-bold text-zinc-900 text-sm">Luis Fernández</p>
+                            <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">
+                                <span class="lang-en">Property Manager · Wynwood</span>
+                                <span class="lang-es">Administrador · Wynwood</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mb-3 text-xs">★★★★★</div>
+                    <p class="text-zinc-600 text-sm leading-relaxed italic">
+                        <span class="lang-en">"I manage 12 units in Miami-Dade. With MiamiFix I handle everything from my phone. They show up, fix it, send photos. I don't have to move."</span>
+                        <span class="lang-es">"Manejo 12 unidades en Miami-Dade. Con MiamiFix coordino todo desde el teléfono. Llegan, arreglan, mandan fotos. No tengo que moverme."</span>
+                    </p>
+                </div>
+                <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-200 hover:shadow-lg hover:border-blue-500 transition-all duration-300 min-w-[320px] max-w-[320px]" aria-hidden="true">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full mr-4 flex items-center justify-center bg-emerald-600 text-white font-bold text-sm shrink-0">AM</div>
+                        <div>
+                            <p class="font-bold text-zinc-900 text-sm">Andrés Morales</p>
+                            <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">
+                                <span class="lang-en">Smart Member · Kendall</span>
+                                <span class="lang-es">Miembro · Kendall</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mb-3 text-xs">★★★★★</div>
+                    <p class="text-zinc-600 text-sm leading-relaxed italic">
+                        <span class="lang-en">"I thought the membership was expensive. After the first visit I got it: $65/hr instead of $85, zero trip fee. Easy math."</span>
+                        <span class="lang-es">"Pensé que era caro. Después de la primera visita entendí: $65 la hora en vez de $85, sin costo de viaje. Matemática fácil."</span>
+                    </p>
+                </div>
+                <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-200 hover:shadow-lg hover:border-blue-500 transition-all duration-300 min-w-[320px] max-w-[320px]" aria-hidden="true">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full mr-4 flex items-center justify-center bg-violet-600 text-white font-bold text-sm shrink-0">LS</div>
+                        <div>
+                            <p class="font-bold text-zinc-900 text-sm">Lourdes Suárez</p>
+                            <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">
+                                <span class="lang-en">Homeowner · Doral</span>
+                                <span class="lang-es">Propietaria · Doral</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mb-3 text-xs">★★★★★</div>
+                    <p class="text-zinc-600 text-sm leading-relaxed italic">
+                        <span class="lang-en">"I don't open my door for just anyone. With MiamiFix I know exactly who's coming, when, and how my home looks after they leave."</span>
+                        <span class="lang-es">"Ya no le abro la puerta a cualquiera. Con MiamiFix sé exactamente quién viene, cuándo, y cómo queda mi casa después."</span>
+                    </p>
+                </div>
+                <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-200 hover:shadow-lg hover:border-blue-500 transition-all duration-300 min-w-[320px] max-w-[320px]" aria-hidden="true">
+                    <div class="flex items-center mb-4">
+                        <img src="https://img.rocket.new/generatedImages/rocket_gen_img_125201d6e-1763293929099.png" alt="" class="w-12 h-12 rounded-full mr-4 object-cover border border-zinc-200" width="48" height="48">
+                        <div>
+                            <p class="font-bold text-zinc-900 text-sm">Carolina Ríos</p>
+                            <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">
+                                <span class="lang-en">Homeowner · Brickell</span>
+                                <span class="lang-es">Propietaria · Brickell</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mb-3 text-xs">★★★★★</div>
+                    <p class="text-zinc-600 text-sm leading-relaxed italic">
+                        <span class="lang-en">"They speak our language — and not just Spanish. They understand what we need, work clean, and always leave the house better than they found it."</span>
+                        <span class="lang-es">"Hablan nuestro idioma — y no solo el español. Entienden lo que uno necesita, trabajan limpio y siempre dejan la casa mejor que como la encontraron."</span>
+                    </p>
+                </div>
+                <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-200 hover:shadow-lg hover:border-blue-500 transition-all duration-300 min-w-[320px] max-w-[320px]" aria-hidden="true">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full mr-4 flex items-center justify-center bg-amber-500 text-white font-bold text-xs shrink-0">IDS</div>
+                        <div>
+                            <p class="font-bold text-zinc-900 text-sm">Inversiones Del Sol LLC</p>
+                            <p class="text-[10px] text-blue-600 font-bold uppercase tracking-widest">
+                                <span class="lang-en">Real Estate Co. · Miami-Dade</span>
+                                <span class="lang-es">Inmobiliaria · Miami-Dade</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mb-3 text-xs">★★★★★</div>
+                    <p class="text-zinc-600 text-sm leading-relaxed italic">
+                        <span class="lang-en">"As a real estate company we need trust and speed. MiamiFix understands the business and always delivers. They're our maintenance team in Miami."</span>
+                        <span class="lang-es">"Como empresa inmobiliaria necesitamos confianza y rapidez. MiamiFix entiende el negocio y siempre responde. Son nuestro equipo de mantenimiento en Miami."</span>
+                    </p>
+                </div>
+
+            </div><!-- /reviews-marquee -->
+        </div><!-- /overflow-hidden -->
     </div>
 </section>
 
@@ -1107,11 +1230,6 @@ tailwind.config = {
                         </li>
                     </ul>
                     
-                    <div class="bg-white/5 rounded-lg p-3 mb-6 text-center border border-white/5">
-                        <p class="text-[10px] text-zinc-400 italic">Cuentas claras conservan la amistad.</p>
-                        <p class="text-[10px] text-zinc-500">Short reckonings make long friendships.</p>
-                    </div>
-
                     <a href="https://wa.me/34623282101?text=Landlord%20inquiry" class="block w-full py-3 border border-white/20 text-white text-sm font-semibold rounded-xl hover:bg-white/10 transition-all text-center">
                         <span class="lang-en">Contact Sales</span>
                         <span class="lang-es">Contactar Ventas</span>
@@ -1264,15 +1382,15 @@ tailwind.config = {
                     </p>
                 </div>
 
-                <!-- Alberto — Pintura -->
+                <!-- Carlos — Arreglos Generales -->
                 <div class="flex flex-col items-center text-center">
                     <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-2 ring-zinc-200 shadow-md mb-4 bg-zinc-50">
-                        <img src="img/quienes-somos/alberto-pintura.png" alt="Alberto" class="w-full h-full object-contain" loading="lazy" width="112" height="112">
+                        <img src="img/quienes-somos/carlos-arreglos-generales.png" alt="Carlos" class="w-full h-full object-contain" loading="lazy" width="112" height="112">
                     </div>
-                    <p class="font-bold text-zinc-900 text-sm">Alberto</p>
+                    <p class="font-bold text-zinc-900 text-sm">Carlos</p>
                     <p class="text-zinc-400 text-xs mt-0.5">
-                        <span class="lang-es">Pintura</span>
-                        <span class="lang-en">Painting</span>
+                        <span class="lang-es">Arreglos Generales</span>
+                        <span class="lang-en">General Repairs</span>
                     </p>
                 </div>
 
@@ -1300,15 +1418,15 @@ tailwind.config = {
                     </p>
                 </div>
 
-                <!-- Ana Laura — Muebles y Apliques -->
+                <!-- Candelaria — Armado de Muebles -->
                 <div class="flex flex-col items-center text-center">
                     <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-2 ring-zinc-200 shadow-md mb-4 bg-zinc-50">
-                        <img src="img/quienes-somos/ana-laura-muebles-y-apliques.png" alt="Ana Laura" class="w-full h-full object-contain" loading="lazy" width="112" height="112">
+                        <img src="img/quienes-somos/candelaria-armado-de-muebles.png" alt="Candelaria" class="w-full h-full object-contain" loading="lazy" width="112" height="112">
                     </div>
-                    <p class="font-bold text-zinc-900 text-sm">Ana Laura</p>
+                    <p class="font-bold text-zinc-900 text-sm">Candelaria</p>
                     <p class="text-zinc-400 text-xs mt-0.5">
-                        <span class="lang-es">Muebles & Apliques</span>
-                        <span class="lang-en">Furniture & Fixtures</span>
+                        <span class="lang-es">Armado de Muebles</span>
+                        <span class="lang-en">Furniture Assembly</span>
                     </p>
                 </div>
 
@@ -1375,15 +1493,27 @@ tailwind.config = {
                     </p>
                 </div>
 
-                <!-- Candelaria — Armado de Muebles -->
+                <!-- Alberto — Pintura -->
                 <div class="flex flex-col items-center text-center">
                     <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-2 ring-zinc-200 shadow-md mb-4 bg-zinc-50">
-                        <img src="img/quienes-somos/candelaria-armado-de-muebles.png" alt="Candelaria" class="w-full h-full object-contain" loading="lazy" width="112" height="112">
+                        <img src="img/quienes-somos/alberto-pintura.png" alt="Alberto" class="w-full h-full object-contain" loading="lazy" width="112" height="112">
                     </div>
-                    <p class="font-bold text-zinc-900 text-sm">Candelaria</p>
+                    <p class="font-bold text-zinc-900 text-sm">Alberto</p>
                     <p class="text-zinc-400 text-xs mt-0.5">
-                        <span class="lang-es">Armado de Muebles</span>
-                        <span class="lang-en">Furniture Assembly</span>
+                        <span class="lang-es">Pintura</span>
+                        <span class="lang-en">Painting</span>
+                    </p>
+                </div>
+
+                <!-- Ana Laura — Muebles y Apliques -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-2 ring-zinc-200 shadow-md mb-4 bg-zinc-50">
+                        <img src="img/quienes-somos/ana-laura-muebles-y-apliques.png" alt="Ana Laura" class="w-full h-full object-contain" loading="lazy" width="112" height="112">
+                    </div>
+                    <p class="font-bold text-zinc-900 text-sm">Ana Laura</p>
+                    <p class="text-zinc-400 text-xs mt-0.5">
+                        <span class="lang-es">Muebles & Apliques</span>
+                        <span class="lang-en">Furniture & Fixtures</span>
                     </p>
                 </div>
 
@@ -1396,18 +1526,6 @@ tailwind.config = {
                     <p class="text-zinc-400 text-xs mt-0.5">
                         <span class="lang-es">Fontanería</span>
                         <span class="lang-en">Plumbing</span>
-                    </p>
-                </div>
-
-                <!-- Carlos — Arreglos Generales -->
-                <div class="flex flex-col items-center text-center">
-                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-2 ring-zinc-200 shadow-md mb-4 bg-zinc-50">
-                        <img src="img/quienes-somos/carlos-arreglos-generales.png" alt="Carlos" class="w-full h-full object-contain" loading="lazy" width="112" height="112">
-                    </div>
-                    <p class="font-bold text-zinc-900 text-sm">Carlos</p>
-                    <p class="text-zinc-400 text-xs mt-0.5">
-                        <span class="lang-es">Arreglos Generales</span>
-                        <span class="lang-en">General Repairs</span>
                     </p>
                 </div>
 
